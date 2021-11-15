@@ -42,12 +42,16 @@ function showbox() {
     document.getElementById('modal_box').style.display = "block";
     document.getElementById('content').style.display = "none";
     document.querySelector('.show-modal').style.display = 'none';
+    document.body.style.background = '#12b886';
 }
 
 function closebox() {
     document.getElementById('modal_box').style.display = "none";
     document.getElementById('content').style.display = "block";
     document.querySelector('.show-modal').style.display = 'block';
+    if(player == false) document.body.style.background = '#3bc9db';
+    
+    else document.body.style.background = '#fab005';
 }
 
 // game logic
@@ -119,16 +123,6 @@ function changePlayer(id1, id2, val) {
         return;
     }
     if (player == false) {
-        // background color
-        document.body.style.background = '#fab005';
-
-        // input color 
-        document.querySelector('.inputBox').style.background = '#ffe066';
-        document.querySelector('.box').style.background = '#ffe066';
-
-        // button color
-        document.querySelector('.show-modal').style.color = '#fab005';
-        document.querySelector('.btn').style.color = '#fab005';
         for (let i = 0; i <= 2; i++) {
             for (let j = 0; j <= 2; j++) {
                 if (playerA[i][j] == val.value) {
