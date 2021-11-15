@@ -3,6 +3,7 @@
 const btnConfirm = document.querySelector('.btn');
 var playerBoxColor = document.querySelector('.box');
 var playerInpColor = document.querySelector('.inputBox');
+oldValue = null;
 
 player = false;
 playerWonA = false;
@@ -19,15 +20,33 @@ playerB = [
     [0, 0, 0]
 ];
 
+boolPlayerA = [
+    false,
+    false,
+    false,
+    false,
+    false,
+    false
+];
+
+boolPlayerB = [
+    false,
+    false,
+    false,
+    false,
+    false,
+    false
+];
+
 function showbox() {
-    document.getElementById("modal_box").style.display = "block";
-    document.getElementById("content").style.display = "none";
+    document.getElementById('modal_box').style.display = "block";
+    document.getElementById('content').style.display = "none";
     document.querySelector('.show-modal').style.display = 'none';
 }
 
 function closebox() {
-    document.getElementById("modal_box").style.display = "none";
-    document.getElementById("content").style.display = "block";
+    document.getElementById('modal_box').style.display = "none";
+    document.getElementById('content').style.display = "block";
     document.querySelector('.show-modal').style.display = 'block';
 }
 
@@ -88,10 +107,13 @@ function winning() {
     }
 }
 
+function onConfirm(obj) {
+    oldValue = obj.value;
+}
 
 function changePlayer(id1, id2, val) {
     if (val.value < 1 || val.value > 6) {
-        val.value = null;
+        val.value = oldValue;
         playerA[id1][id2] = 0;
         playerB[id1][id2] = 0;
         return;
@@ -110,52 +132,75 @@ function changePlayer(id1, id2, val) {
         for (let i = 0; i <= 2; i++) {
             for (let j = 0; j <= 2; j++) {
                 if (playerA[i][j] == val.value) {
-                    val.value = null;
+                    val.value = oldValue;
                     playerA[id1][id2] = 0;
                     playerB[id1][id2] = 0;
                     return;
                 }
             }
         }
-        val.style.color = '#0b7285';
-        playerA[id1][id2] = val.value;
+
+        if (parseInt(oldValue) > parseInt(val.value)) {
+            val.value = oldValue;
+            playerB[id1][id2] = oldValue;
+            return;
+        } else {
+            playerA[id1][id2] = val.value;
+            // background color
+            document.body.style.background = '#fab005';
+
+            // input color 
+            document.querySelector('.inputBox').style.background = '#ffe066';
+            document.querySelector('.box').style.background = '#ffe066';
+
+            // button color
+            document.querySelector('.show-modal').style.color = '#fab005';
+            document.querySelector('.btn').style.color = '#fab005';
+        }
         playerB[id1][id2] = 0;
+        val.style.color = '#0b7285';
+
+
     } else {
-        // background color
-        document.body.style.background = '#3bc9db';
-        // input color 
-        document.querySelector('.inputBox').style.background = '#66d9e8';
-        document.querySelector('.box').style.background = '#66d9e8';
-
-        // button color
-        document.querySelector('.show-modal').style.color = '#3bc9db';
-        document.querySelector('.btn').style.color = '#3bc9db';
-
-
         for (let i = 0; i <= 2; i++) {
             for (let j = 0; j <= 2; j++) {
                 if (playerB[i][j] == val.value) {
-                    val.value = null;
+                    val.value = oldValue;
                     playerA[id1][id2] = 0;
                     playerB[id1][id2] = 0;
                     return;
                 }
             }
         }
-        val.style.color = '#e67700';
-        playerB[id1][id2] = val.value;
+        if (parseInt(oldValue) > parseInt(val.value)) {
+            val.value = oldValue;
+            playerA[id1][id2] = oldValue;
+            return;
+        } else {
+            playerB[id1][id2] = val.value;
+            // background color
+            document.body.style.background = '#3bc9db';
+            // input color 
+            document.querySelector('.inputBox').style.background = '#66d9e8';
+            document.querySelector('.box').style.background = '#66d9e8';
+
+            // button color
+            document.querySelector('.show-modal').style.color = '#3bc9db';
+            document.querySelector('.btn').style.color = '#3bc9db';
+        }
         playerA[id1][id2] = 0;
+        val.style.color = '#e67700';
     }
+
+
     player = !player;
-    console.log(playerA, playerB, player);
+    console.log(playerA, playerB, player, oldValue);
     winning();
+    oldValue = null;
 }
 
 
 
 
 // draw
-// lower cant change the upper lmt
-// when toches the input it will disappear if valid input then ok otherwise old input comes up
 // what number we use it will show by any means
-// confirm button to confirm the input and however u change something
