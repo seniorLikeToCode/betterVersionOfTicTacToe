@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Game</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="./script.js"></script>
+</head>
+
+<body>
+  <!-- modal -->
+  <button class="show-modal" onclick="showbox()">Rules</button>
+  <div class="modal hidden" id="modal_box">
+    <button class="close-modal" onclick="closebox()">&times;</button>
+    <h1>Rules</h1>
+    <p>1. Both player have 1 to 6 number.</p>
+    <p>2. Each number can be used once.</p>
+    <p>3. Both player can overwrite each others number if it has greater than other player number
+      (e.g. 3 can be replace by 4 , 5 and 6 not by 1 and 2).
+    </p>
+    <p>4. Player win if it secure either 3 vertical , horizontal and diagonal box.</p>
+  </div>
+  
+  <!-- win-status -->
+  <div id="win-modal"></div>
+
+  <div class="content board" id="content">
+    </table>
+    <table class="ipNumber">
+      <tr>
+        <td class="box" id="square_two"><input class="inputBox" type="number" onchange="changePlayer('0','0',this)">
+        </td>
+        <td class="box" id="square_one"><input class="inputBox" type="number" onchange="changePlayer('0','1',this)">
+        </td>
+        <td class="box" id="square_three"><input class="inputBox" type="number" onchange="changePlayer('0','2',this)">
+        </td>
+      </tr>
+      <tr>
+        <td class="box" id="square_four"><input class="inputBox" type="number" onchange="changePlayer('1','0',this)">
+        </td>
+        <td class="box" id="square_five"><input class="inputBox" type="number" onchange="changePlayer('1','1',this)">
+        </td>
+        <td class="box" id="square_six"><input class="inputBox" type="number" onchange="changePlayer('1','2',this)">
+        </td>
+      </tr>
+      <tr>
+        <td class="box" id="square_seven"><input class="inputBox" type="number" onchange="changePlayer('2','0',this)">
+        </td>
+        <td class="box" id="square_eight"><input class="inputBox" type="number" onchange="changePlayer('2','1',this)">
+        </td>
+        <td class="box" id="square_nine"><input class="inputBox" type="number" onchange="changePlayer('2','2',this)">
+        </td>
+      </tr>
+    </table>
+    <button type="button" class="btn">CONFIRM</button>
+  </div>
+</body>
+
+</html>

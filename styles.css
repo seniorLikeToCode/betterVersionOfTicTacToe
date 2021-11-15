@@ -1,0 +1,168 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+
+body {
+  background-color: #12b886;
+  color: #FDFDFE;
+  font-size: 40px;
+  font-family: 'Courier New', Courier, monospace;
+}
+
+h1 {
+  font-size: 34px;
+}
+
+p {
+  font-size: 22px;
+  padding: 10px;
+}
+
+/* modal */
+.show-modal {
+  font-size: 2rem;
+  padding: 8px 15px;
+  margin: 10px 30px;
+  border: none;
+  border-radius: 7px;
+  cursor: pointer;
+  float: right;
+  font-size: 20px;
+  color: #12b886;
+  background-color: #212529;
+}
+
+.close-modal {
+  position: absolute;
+  top: -0.5rem;
+  right: 1rem;
+  font-size: 5rem;
+  color: #333;
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+.hidden {
+  display: none;
+}
+
+.modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 500px;
+  height: 370px;
+  background-color: #96f2d7;
+  padding: 60px 30px;
+  border-radius: 9px;
+  box-shadow: 0 3rem 5rem #38d9a9;
+  z-index: 10;
+  color: #000000;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(3px);
+  z-index: 5;
+}
+
+table {
+  width: 400px;
+  height: 400px;
+}
+
+.box {
+  background-color: #63e6be;
+  border-radius: 25%;
+  width: 80px;
+  height: 80px;
+  text-align: center;
+  font-family: 'Roboto', sans-serif;
+  color: #087f5b;
+}
+
+.ipNumber {
+  border: none;
+}
+
+.inputBox {
+  height: 80px;
+  width: 80px;
+  font-size: 70px;
+  opacity: 1;
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: bold;
+  border: none;
+  text-align: center;
+  background-color: #63e6be;
+}
+
+input[type=number] {
+  opacity: 1;
+}
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  margin: 0;
+  opacity: 1;
+}
+
+td:hover {
+  opacity: 0.4;
+}
+
+.content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: block;
+}
+
+.btn {
+  display: block;
+  position: relative;
+  border: none;
+  border-radius: 7px;
+  padding: 10px;
+  margin-top: 10px;
+  font-size: 24px;
+  color: #12b886;
+  background-color: #212529;
+  cursor: pointer;
+  top: 30px;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.btn:hover {
+  background-color: #343a40;
+}
+
+/* 
+player 1 : #1098ad cyan7
+player 2 :  #f59f00 yellow7
+*/
+
+#win-modal{
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 50px;
+  z-index: 100;
+  color: #212529;
+}
