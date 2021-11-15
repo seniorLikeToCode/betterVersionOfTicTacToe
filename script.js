@@ -47,16 +47,19 @@ var boolPlayerB = [
 function showbox() {
     document.getElementById('modal_box').style.display = "block";
     document.getElementById('content').style.display = "none";
-    document.querySelector('.show-modal').style.display = 'none';
+    // document.querySelector('.show-modal').style.display = 'none';
+    for (let i = 0; i < modalButton.length; i++)
+        modalButton[i].style.display = 'none';
     document.body.style.background = '#12b886';
 }
 
 function closebox() {
     document.getElementById('modal_box').style.display = "none";
     document.getElementById('content').style.display = "block";
-    document.querySelector('.show-modal').style.display = 'block';
+    // document.querySelector('.show-modal').style.display = 'block';
+    for (let i = 0; i < modalButton.length; i++)
+        modalButton[i].style.display = 'block';
     if (player == false) document.body.style.background = '#3bc9db';
-
     else document.body.style.background = '#fab005';
 }
 
@@ -208,6 +211,6 @@ function changePlayer(id1, id2, val) {
 
 
 
-
+// audio
 // draw
 // what number we use it will show by any means

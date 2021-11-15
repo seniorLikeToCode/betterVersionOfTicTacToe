@@ -155,11 +155,6 @@ td:hover {
   background-color: #343a40;
 }
 
-/* 
-player 1 : #1098ad cyan7
-player 2 :  #f59f00 yellow7
-*/
-
 #win-modal{
   display: block;
   position: absolute;
