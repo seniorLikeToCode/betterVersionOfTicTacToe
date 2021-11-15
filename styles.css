@@ -6,7 +6,7 @@
 
 body {
   background-color: #12b886;
-  color: #FDFDFE;
+  color: red;
   font-size: 40px;
   font-family: 'Courier New', Courier, monospace;
 }
@@ -20,11 +20,11 @@ p {
   padding: 10px;
 }
 
-/* modal */
+/* rules modal */
 .show-modal {
   font-size: 2rem;
   padding: 8px 15px;
-  margin: 10px 30px;
+  margin: 10px 5px;
   border: none;
   border-radius: 7px;
   cursor: pointer;
@@ -32,6 +32,10 @@ p {
   font-size: 20px;
   color: #12b886;
   background-color: #212529;
+}
+
+.about-modal{
+  margin-right: 15px;
 }
 
 .close-modal {

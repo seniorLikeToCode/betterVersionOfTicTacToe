@@ -1,26 +1,32 @@
 // 'use strict';
 
 const btnConfirm = document.querySelector('.btn');
-var playerBoxColor = document.querySelector('.box');
-var playerInpColor = document.querySelector('.inputBox');
-oldValue = null;
+var playerBoxColor = document.getElementsByClassName('box');
+var playerInpColor = document.getElementsByClassName('inputBox');
 
-player = false;
-playerWonA = false;
-playerWonB = false;
-playerA = [
+
+var modalButton = document.getElementsByClassName('show-modal');
+var confirmButton = document.querySelector('.btn');
+
+var button = document.getElementsByTagName('button');
+var oldValue = null;
+
+var player = false;
+var playerWonA = false;
+var playerWonB = false;
+var playerA = [
     [0, 0, 0],
     [0, 0, 0],
     [0, 0, 0]
 ];
 
-playerB = [
+var playerB = [
     [0, 0, 0],
     [0, 0, 0],
     [0, 0, 0]
 ];
 
-boolPlayerA = [
+var boolPlayerA = [
     false,
     false,
     false,
@@ -29,7 +35,7 @@ boolPlayerA = [
     false
 ];
 
-boolPlayerB = [
+var boolPlayerB = [
     false,
     false,
     false,
@@ -49,8 +55,8 @@ function closebox() {
     document.getElementById('modal_box').style.display = "none";
     document.getElementById('content').style.display = "block";
     document.querySelector('.show-modal').style.display = 'block';
-    if(player == false) document.body.style.background = '#3bc9db';
-    
+    if (player == false) document.body.style.background = '#3bc9db';
+
     else document.body.style.background = '#fab005';
 }
 
@@ -144,11 +150,15 @@ function changePlayer(id1, id2, val) {
             document.body.style.background = '#fab005';
 
             // input color 
-            document.querySelector('.inputBox').style.background = '#ffe066';
-            document.querySelector('.box').style.background = '#ffe066';
-
+            // document.querySelector('.inputBox').style.background = '#ffe066';
+            // document.querySelector('.box').style.background = '#ffe066';
+            for (let i = 0; i < playerBoxColor.length; i++) {
+                playerBoxColor[i].style.background = '#ffe066';
+                playerInpColor[i].style.background = '#ffe066';
+            }
             // button color
-            document.querySelector('.show-modal').style.color = '#fab005';
+            for (let i = 0; i < modalButton.length; i++)
+                modalButton[i].style.color = '#fab005';
             document.querySelector('.btn').style.color = '#fab005';
         }
         playerB[id1][id2] = 0;
@@ -175,11 +185,14 @@ function changePlayer(id1, id2, val) {
             // background color
             document.body.style.background = '#3bc9db';
             // input color 
-            document.querySelector('.inputBox').style.background = '#66d9e8';
-            document.querySelector('.box').style.background = '#66d9e8';
+            for (let i = 0; i < playerBoxColor.length; i++) {
+                playerBoxColor[i].style.background = '#66d9e8';
+                playerInpColor[i].style.background = '#66d9e8';
+            }
 
             // button color
-            document.querySelector('.show-modal').style.color = '#3bc9db';
+            for (let i = 0; i < modalButton.length; i++)
+                modalButton[i].style.color = '#3bc9db';
             document.querySelector('.btn').style.color = '#3bc9db';
         }
         playerA[id1][id2] = 0;
