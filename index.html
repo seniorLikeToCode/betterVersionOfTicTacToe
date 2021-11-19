@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -12,32 +11,40 @@
 </head>
 
 <body>
-  <!-- About modal -->
-  <button class="show-modal about-modal" onclick="aboutbox()">About</button>
-  <div class="modal hidden" id="about_modal">
-    <button class="close-about" onclick="aboutbox()">&times;</button>
-    <p>here</p>
-  </div>
-  <!--Rules modal -->
-  <button class="show-modal" onclick="showbox()">Rules</button>
-  <div class="modal hidden" id="modal_box">
-    <button class="close-modal" onclick="closebox()">&times;</button>
-    <h1>Rules</h1>
-    <p>1. Both player have 1 to 6 number.</p>
-    <p>2. Each number can be used once.</p>
-    <p>3. Both player can overwrite each others number if it has greater than other player number
-      (e.g. 3 can be replace by 4 , 5 and 6 not by 1 and 2).
-    </p>
-    <p>4. Player win if it secure either 3 vertical , horizontal and diagonal box.</p>
-  </div>
+  <!-- Button Box -->
+  <div class="button-box">
+    <!--Rules modal -->
+    <button class="show-modal" onclick="showbox()">Rules</button>
+    <div class="modal hidden" id="modal_box">
+      <div class="modal-head">
+        <h1>Rules</h1>
+        <button class="close-modal" onclick="closebox()">&times;</button>
+      </div>
+      <ol>
+        <li>Both player have 1 to 6 number</li>
+        <li>Each number can be used once</li>
+        <li>
+          Both player can overwrite each others number if it has greater than other player number<br/>
+          (e.g. 3 can be replace by 4 , 5 and 6 not by 1 and 2)
+        </li>
+        <li>Player win if it secure either 3 vertical , horizontal and diagonal box</li>
+      </ol>
+    </div>
 
-  
+    <!-- About modal -->
+    <button class="show-modal" onclick="aboutbox()">About</button>
+    <div class="modal hidden" id="about_modal">
+      <button class="close-about" onclick="aboutbox()">&times;</button>
+      <p>here</p>
+    </div>
+  </div>
+  <!-- Button Box End -->
 
   <!-- win-status -->
   <div id="win-modal"></div>
 
+  <!-- IpNumber Grid -->
   <div class="content board" id="content">
-    </table>
     <table class="ipNumber">
       <tr>
         <td class="box" id="square_two"><input class="inputBox" type="number" onchange="changePlayer('0','0',this)"
@@ -72,8 +79,12 @@
             onclick="onConfirm(this)">
         </td>
       </tr>
+      <tr>
+        <td class="btn-td" colspan="3">
+          <button class="btn">CONFIRM</button>
+        </td>
+      </tr>
     </table>
-    <button type="button" class="btn">CONFIRM</button>
   </div>
 </body>
 

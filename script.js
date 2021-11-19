@@ -1,16 +1,36 @@
 // 'use strict';
 
+
+// firebase
+import { initializeApp } from 'firebase/app';
+import { getDatabase } from "firebase/database";
+
+// Set the configuration for your app
+// TODO: Replace with your project's config object
+const firebaseConfig = {
+  apiKey: "apiKey",
+  authDomain: "projectId.firebaseapp.com",
+  // For databases not in the us-central1 location, databaseURL will be of the
+  // form https://[databaseName].[region].firebasedatabase.app.
+  // For example, https://your-database-123.europe-west1.firebasedatabase.app
+  databaseURL: "https://databaseName.firebaseio.com",
+  storageBucket: "bucket.appspot.com"
+};
+
+const app = initializeApp(firebaseConfig);
+
+// Get a reference to the database service
+const database = getDatabase(app);
+
+
 const btnConfirm = document.querySelector('.btn');
 var playerBoxColor = document.getElementsByClassName('box');
 var playerInpColor = document.getElementsByClassName('inputBox');
-
-
 var modalButton = document.getElementsByClassName('show-modal');
 var confirmButton = document.querySelector('.btn');
-
 var button = document.getElementsByTagName('button');
-var oldValue = null;
 
+var oldValue = null;
 var player = false;
 var playerWonA = false;
 var playerWonB = false;
@@ -43,6 +63,15 @@ var boolPlayerB = [
     false,
     false
 ];
+
+var confirmAudio = new Audio();
+confirmAudio.src = "D:\\tictactoe\\new\\confirm.wav";
+
+confirmButton.addEventListener('click', function () {
+    confirmAudio.play();
+});
+
+
 
 function showbox() {
     document.getElementById('modal_box').style.display = "block";
@@ -110,6 +139,7 @@ function winning() {
         document.getElementById("content").style.display = "none";
         document.body.style.background = '#f03e3e';
         document.querySelector('.show-modal').style.display = 'none';
+
     }
 
     if (playerWonB) {

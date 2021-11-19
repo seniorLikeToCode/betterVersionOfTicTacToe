@@ -3,54 +3,31 @@
   padding: 0;
 }
 
-
 body {
   background-color: #12b886;
-  color: red;
-  font-size: 40px;
   font-family: 'Courier New', Courier, monospace;
 }
 
-h1 {
-  font-size: 34px;
+/* home page */
+
+
+
+
+/* button box */
+.button-box {
+  display: flex;
+  justify-content: right;
 }
 
-p {
-  font-size: 22px;
-  padding: 10px;
-}
-
-/* rules modal */
 .show-modal {
-  font-size: 2rem;
-  padding: 8px 15px;
-  margin: 10px 5px;
+  font-size: 2.5vmin;
+  padding: 1vmin 2vmin;
+  margin: 1.5vmin 2.5vmin 0 0;
   border: none;
-  border-radius: 7px;
+  border-radius: 0.5vmin;
   cursor: pointer;
-  float: right;
-  font-size: 20px;
   color: #12b886;
   background-color: #212529;
-}
-
-.about-modal{
-  margin-right: 15px;
-}
-
-.close-modal {
-  position: absolute;
-  top: -0.5rem;
-  right: 1rem;
-  font-size: 5rem;
-  color: #333;
-  cursor: pointer;
-  border: none;
-  background: none;
-}
-
-.hidden {
-  display: none;
 }
 
 .modal {
@@ -58,50 +35,86 @@ p {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 28rem;
-  height: 22rem;
+  width: 50vmin;
+  height: auto;
   background-color: #96f2d7;
-  padding: 60px 30px;
-  border-radius: 9px;
-  box-shadow: 0 3rem 5rem #38d9a9;
+  padding: 4vmin 4vmin;
+  border-radius: 1vmin;
+  box-shadow: 0 0 2vmin #166d53;
   z-index: 10;
   color: #000000;
 }
 
-.overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.6);
-  backdrop-filter: blur(3px);
-  z-index: 5;
+.hidden {
+  display: none;
 }
 
-table {
-  width: 400px;
-  height: 400px;
+.modal-head{
+  display: flex;
+  justify-content: space-between;
+}
+
+.modal-head h1 {
+  font-size: 4vmin;
+}
+
+.modal-head .close-modal {
+  font-size: 7vmin;
+  line-height: 5vmin;
+  color: #333;
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+.modal ol {
+  padding: 2vmin 2vmin 2vmin 3.5vmin;
+}
+
+.modal ol li{
+  font-size: 2vmin;
+  padding: 0.5vmin 0;
+}
+
+#win-modal{
+  position: absolute;
+  width: 100vw;
+  text-align: center;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 5vmin;
+  z-index: 100;
+  color: #212529;
+}
+
+.content {
+  width: 80vmin;
+  height: auto;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.ipNumber{
+  margin: 0 auto;
 }
 
 .box {
   background-color: #63e6be;
   border-radius: 25%;
-  width: 80px;
-  height: 80px;
+  width: 15vmin;
+  height: 15vmin;
   text-align: center;
   font-family: 'Roboto', sans-serif;
   color: #087f5b;
 }
 
-.ipNumber {
-  border: none;
-}
-
 .inputBox {
-  height: 80px;
-  width: 80px;
-  font-size: 70px;
+  height: 10vmin;
+  width: 10vmin;
+  font-size: 8vmin;
   opacity: 1;
   font-family: 'Courier New', Courier, monospace;
   font-weight: bold;
@@ -127,41 +140,81 @@ td:hover {
   opacity: 0.4;
 }
 
-.content {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  display: block;
-}
-
 .btn {
   display: block;
-  position: relative;
   border: none;
-  border-radius: 7px;
-  padding: 10px;
-  margin-top: 10px;
-  font-size: 24px;
+  border-radius: 1vmin;
+  padding: 1vmin 2vmin;
+  margin: 4vmin auto;
+  font-size: 2.5vmin;
   color: #12b886;
   background-color: #212529;
   cursor: pointer;
-  top: 30px;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  transition: background-color 0.5s;
+}
+
+.btn-td:hover{
+  opacity: 1;
 }
 
 .btn:hover {
-  background-color: #343a40;
+  background-color: #31363a;
 }
 
-#win-modal{
-  display: block;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  font-size: 50px;
-  z-index: 100;
-  color: #212529;
+
+/* Style for Mobile */
+
+@media screen and (max-width:768px){
+  .show-modal {
+    font-size: 4vmin;
+    padding: 1vmin 3vmin;
+    margin: 3vmin 5vmin 0 0;
+    border-radius: 0.7vmin;
+  }
+
+  .modal {
+    width: 55vmin;
+    padding: 5vmin 5vmin;
+    border-radius: 2vmin;
+    box-shadow: 0 0 3vmin #166d53;
+  }
+
+  .modal-head h1 {
+    font-size: 6vmin;
+  }
+  
+  .modal-head .close-modal {
+    font-size: 10vmin;
+    line-height: 5vmin;
+  }
+  
+  .modal ol {
+    padding: 4vmin 2vmin 2vmin 6vmin;
+  }
+  
+  .modal ol li{
+    font-size: 3vmin;
+    padding: 1vmin 0;
+  }
+  
+  #win-modal{
+    font-size: 8vmin;
+  }
+  
+  .box {
+    width: 20vmin;
+    height: 20vmin;
+  }
+
+  .inputBox {
+    height: 12vmin;
+    width: 12vmin;
+    font-size: 10vmin;
+  }
+  
+  .btn {
+    padding: 2vmin 3vmin;
+    margin: 8vmin auto;
+    font-size: 4vmin;
+  }
 }
