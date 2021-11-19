@@ -168,7 +168,7 @@ td:hover {
   .show-modal {
     font-size: 4vmin;
     padding: 1vmin 3vmin;
-    margin: 3vmin 5vmin 0 0;
+    /* margin: 3vmin 5vmin 0 0; */
     border-radius: 0.7vmin;
   }
 
@@ -202,19 +202,19 @@ td:hover {
   }
   
   .box {
-    width: 20vmin;
-    height: 20vmin;
+    width: 28vmin;
+    height: 28vmin;
   }
 
   .inputBox {
-    height: 12vmin;
-    width: 12vmin;
-    font-size: 10vmin;
+    height: 20vmin;
+    width: 20vmin;
+    font-size: 18vmin;
   }
   
   .btn {
     padding: 2vmin 3vmin;
-    margin: 8vmin auto;
+    /* margin: 8vmin auto; */
     font-size: 4vmin;
   }
 }
