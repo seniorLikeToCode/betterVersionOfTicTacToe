@@ -1,21 +1,30 @@
 'use strict';
 
- const confirmButton = document.getElementById("confirmButton");
-let playerTurn = 2;
+const confirmButton = document.getElementById('confirmButton');
+const playerInput = document.getElementsByClassName('name');
+const start = document.getElementById('start');
 
-function selectPlayer() {
-    confirm.style.display = 'none';
-    playerTurn = Math.trunc(Math.random() * 2) + 1;
+let playerTurn = Math.trunc(Math.random() * 2) + 1;
+
+// console.log(playerTurn);
+
+
+
+function selectPlayer(playerTurn) {
     console.log(playerTurn);
-    if (playerTurn === 1) {
+    if (playerTurn == 1)
         document.querySelector('.pDecide').innerHTML = 'Player A Won';
-        document.body.style.background = '#f03e3e';
-
-    } else {
+    else
         document.querySelector('.pDecide').innerHTML = 'Player B Won';
-        document.body.style.background = 'white';  
-    }
+    startMenu();
 }
 
-confirmButton.addEventListener('click', selectPlayer());
 
+function startMenu() {
+    confirmButton.style.display = 'none';
+    for (let i = 0; i < playerInput.length; i++)
+        playerInput[i].style.display = 'none';
+    start.style.display = 'block';
+}
+
+// confirmButton.addEventListener('click', selectPlayer(playerTurn));

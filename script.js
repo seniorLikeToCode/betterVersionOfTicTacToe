@@ -1,21 +1,20 @@
 'use strict';
 
 
-// firebase
 // const btnConfirm = document.querySelector('.btn');
 const btnConfirm = document.getElementById("confirm-btn");
 var playerBoxColor = document.getElementsByClassName('box');
 var playerInpColor = document.getElementsByClassName('inputBox');
 var modalButton = document.getElementsByClassName('show-modal');
-// var confirmButton = document.querySelector('.btn');
-const confirmButton = document.getElementById("confirm-btn")
+const confirmButton = document.getElementById('confirm-btn');
+const button = document.getElementsByTagName('button');
 
 // audios
 const confirmAudio = new Audio('confirm.wav');
 const errorAudio = new Audio('error.wav');
 const gameWinAudio = new Audio('game-win.wav');
 
-const button = document.getElementsByTagName('button');
+
 
 var oldValue = null;
 var player = false;
@@ -33,24 +32,8 @@ var playerB = [
     [0, 0, 0]
 ];
 
-var boolPlayerA = [
-    false,
-    false,
-    false,
-    false,
-    false,
-    false
-];
-
-var boolPlayerB = [
-    false,
-    false,
-    false,
-    false,
-    false,
-    false
-];
-
+var boolPlayerA = [false, false, false, false, false, false];
+var boolPlayerB = [false, false, false, false, false, false];
 
 
 // confirmButton.addEventListener('click', confirmationSound());
