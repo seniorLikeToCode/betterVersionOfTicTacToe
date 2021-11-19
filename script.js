@@ -1,13 +1,21 @@
-// 'use strict';
+'use strict';
 
 
 // firebase
-const btnConfirm = document.querySelector('.btn');
+// const btnConfirm = document.querySelector('.btn');
+const btnConfirm = document.getElementById("confirm-btn");
 var playerBoxColor = document.getElementsByClassName('box');
 var playerInpColor = document.getElementsByClassName('inputBox');
 var modalButton = document.getElementsByClassName('show-modal');
-var confirmButton = document.querySelector('.btn');
-var button = document.getElementsByTagName('button');
+// var confirmButton = document.querySelector('.btn');
+const confirmButton = document.getElementById("confirm-btn")
+
+// audios
+const confirmAudio = new Audio('confirm.wav');
+const errorAudio = new Audio('error.wav');
+const gameWinAudio = new Audio('game-win.wav');
+
+const button = document.getElementsByTagName('button');
 
 var oldValue = null;
 var player = false;
@@ -43,16 +51,14 @@ var boolPlayerB = [
     false
 ];
 
-var confirmAudio = new Audio();
-confirmAudio.src = "D:\\tictactoe\\new\\confirm.wav";
 
-confirmButton.addEventListener('click', function () {
-    confirmAudio.play();
-});
 
+// confirmButton.addEventListener('click', confirmationSound());
+// confirmButton.addEventListener('click', errorSound());
 
 
 function showbox() {
+    confirmAudio.play();
     document.getElementById('modal_box').style.display = "block";
     document.getElementById('content').style.display = "none";
     // document.querySelector('.show-modal').style.display = 'none';
@@ -62,6 +68,7 @@ function showbox() {
 }
 
 function closebox() {
+    confirmAudio.play();
     document.getElementById('modal_box').style.display = "none";
     document.getElementById('content').style.display = "block";
     // document.querySelector('.show-modal').style.display = 'block';
@@ -118,6 +125,7 @@ function winning() {
         document.getElementById("content").style.display = "none";
         document.body.style.background = '#f03e3e';
         document.querySelector('.show-modal').style.display = 'none';
+        gameWinAudio.play();
 
     }
 
@@ -126,6 +134,7 @@ function winning() {
         document.getElementById("content").style.display = "none";
         document.body.style.background = '#f03e3e';
         document.querySelector('.show-modal').style.display = 'none';
+        gameWinAudio.play();
     }
 }
 
@@ -138,6 +147,7 @@ function changePlayer(id1, id2, val) {
         val.value = oldValue;
         playerA[id1][id2] = 0;
         playerB[id1][id2] = 0;
+        errorAudio.play();
         return;
     }
     if (player == false) {
@@ -153,10 +163,12 @@ function changePlayer(id1, id2, val) {
         }
 
         if (parseInt(oldValue) > parseInt(val.value)) {
+            errorAudio.play();
             val.value = oldValue;
             playerB[id1][id2] = oldValue;
             return;
         } else {
+            confirmAudio.play();
             playerA[id1][id2] = val.value;
             // background color
             document.body.style.background = '#fab005';
@@ -189,10 +201,12 @@ function changePlayer(id1, id2, val) {
             }
         }
         if (parseInt(oldValue) > parseInt(val.value)) {
+            errorAudio.play();
             val.value = oldValue;
             playerA[id1][id2] = oldValue;
             return;
         } else {
+            confirmAudio.play();
             playerB[id1][id2] = val.value;
             // background color
             document.body.style.background = '#3bc9db';
@@ -218,8 +232,8 @@ function changePlayer(id1, id2, val) {
     oldValue = null;
 }
 
+// confirmButton.addEventListener('click', changePlayer(id1, id2, val));
 
 
 // audio
-// draw
 // what number we use it will show by any means

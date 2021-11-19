@@ -7,13 +7,19 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Game</title>
   <link rel="stylesheet" href="styles.css">
-  <script src="./script.js"></script>
 </head>
 
 <body>
   <!-- Button Box -->
   <div class="button-box">
     <!--Rules modal -->
+
+    <button class="show-modal" onclick="aboutbox()">Leader Board</button>
+    <div class="modal hidden" id="about_modal">
+      <button class="close-about" onclick="aboutbox()">&times;</button>
+      <p>here</p>
+    </div>
+
     <button class="show-modal" onclick="showbox()">Rules</button>
     <div class="modal hidden" id="modal_box">
       <div class="modal-head">
@@ -24,7 +30,7 @@
         <li>Both player have 1 to 6 number</li>
         <li>Each number can be used once</li>
         <li>
-          Both player can overwrite each others number if it has greater than other player number<br/>
+          Both player can overwrite each others number if it has greater than other player number<br />
           (e.g. 3 can be replace by 4 , 5 and 6 not by 1 and 2)
         </li>
         <li>Player win if it secure either 3 vertical , horizontal and diagonal box</li>
@@ -35,7 +41,15 @@
     <button class="show-modal" onclick="aboutbox()">About</button>
     <div class="modal hidden" id="about_modal">
       <button class="close-about" onclick="aboutbox()">&times;</button>
-      <p>here</p>
+      <ol>
+        <li>Both player have 1 to 6 number</li>
+        <li>Each number can be used once</li>
+        <li>
+          Both player can overwrite each others number if it has greater than other player number<br />
+          (e.g. 3 can be replace by 4 , 5 and 6 not by 1 and 2)
+        </li>
+        <li>Player win if it secure either 3 vertical , horizontal and diagonal box</li>
+      </ol>
     </div>
   </div>
   <!-- Button Box End -->
@@ -81,11 +95,12 @@
       </tr>
       <tr>
         <td class="btn-td" colspan="3">
-          <button class="btn">CONFIRM</button>
+          <button id="confirm-btn" class="btn">CONFIRM</button>
         </td>
       </tr>
     </table>
   </div>
+  <script src="./script.js"></script>
 </body>
 
 </html>
