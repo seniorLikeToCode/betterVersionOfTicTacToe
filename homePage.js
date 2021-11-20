@@ -26,7 +26,7 @@ if (pA && pB) {
 
 function selectPlayer(playerTurn) {
     console.log(playerTurn);
-    if (playerTurn == 1)
+    if (playerTurn === 1)
         document.querySelector('.pDecide').innerHTML = pA + ' Start';
     else
         document.querySelector('.pDecide').innerHTML = pB + ' Start';
