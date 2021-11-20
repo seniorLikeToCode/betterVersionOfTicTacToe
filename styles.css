@@ -5,13 +5,10 @@
 
 body {
   background-color: #12b886;
-  font-family: 'Courier New', Courier, monospace;
+  font-family: "Courier New", Courier, monospace;
 }
 
 /* home page */
-
-
-
 
 /* button box */
 .button-box {
@@ -35,7 +32,7 @@ body {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 80vmin;
+  width: 75vmin;
   height: auto;
   background-color: #96f2d7;
   padding: 4vmin 4vmin;
@@ -49,7 +46,7 @@ body {
   display: none;
 }
 
-.modal-head{
+.modal-head {
   display: flex;
   justify-content: space-between;
 }
@@ -58,8 +55,8 @@ body {
   font-size: 6vmin;
 }
 
-.modal-head .close-modal {
-  font-size: 7vmin;
+.modal .close-modal {
+  font-size: 8vmin;
   line-height: 5vmin;
   color: #333;
   cursor: pointer;
@@ -68,15 +65,31 @@ body {
 }
 
 .modal ol {
+  padding: 2vmin 2vmin 2vmin 5vmin;
+}
+
+.modal ol li {
+  font-size: 3.5vmin;
+  padding: 0.5vmin 0;
+}
+.modal ul{
   padding: 2vmin 2vmin 2vmin 3.5vmin;
 }
 
-.modal ol li{
+.modal ul li {
   font-size: 3.5vmin;
   padding: 0.5vmin 0;
 }
 
-#win-modal{
+#about_modal {
+  width: 80vmin;
+}
+
+#about_modal .modal-head {
+  justify-content: end;
+}
+
+#win-modal {
   position: absolute;
   width: 100vw;
   text-align: center;
@@ -97,7 +110,7 @@ body {
   transform: translate(-50%, -50%);
 }
 
-.ipNumber{
+.ipNumber {
   margin: 0 auto;
 }
 
@@ -107,7 +120,7 @@ body {
   width: 15vmin;
   height: 15vmin;
   text-align: center;
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
   color: #087f5b;
 }
 
@@ -116,19 +129,19 @@ body {
   width: 10vmin;
   font-size: 8vmin;
   opacity: 1;
-  font-family: 'Courier New', Courier, monospace;
+  font-family: "Courier New", Courier, monospace;
   font-weight: bold;
   border: none;
   text-align: center;
   background-color: #63e6be;
 }
 
-input[type=number] {
+input[type="number"] {
   opacity: 1;
 }
 
-input[type=number]::-webkit-inner-spin-button,
-input[type=number]::-webkit-outer-spin-button {
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
@@ -153,7 +166,7 @@ td:hover {
   transition: background-color 0.5s;
 }
 
-.btn-td:hover{
+.btn-td:hover {
   opacity: 1;
 }
 
@@ -161,10 +174,9 @@ td:hover {
   background-color: #31363a;
 }
 
-
 /* Style for Mobile */
 
-@media screen and (max-width:450px){
+@media screen and (max-width: 768px) {
   .show-modal {
     font-size: 4vmin;
     padding: 1vmin 3vmin;
@@ -173,7 +185,7 @@ td:hover {
   }
 
   .modal {
-    width: 75vmin;
+    width: 60vmin;
     padding: 5vmin 5vmin;
     border-radius: 2vmin;
     box-shadow: 0 0 3vmin #166d53;
@@ -182,25 +194,29 @@ td:hover {
   .modal-head h1 {
     font-size: 6vmin;
   }
-  
+
   .modal-head .close-modal {
-    font-size: 16vmin;
+    font-size: 14vmin;
     line-height: 5vmin;
   }
-  
+
   .modal ol {
     padding: 4vmin 2vmin 2vmin 6vmin;
   }
-  
-  .modal ol li{
+
+  .modal ol li {
     font-size: 4vmin;
     padding: 1vmin 0;
   }
-  
-  #win-modal{
+
+  #about_modal {
+    width: 60vmin;
+  }
+
+  #win-modal {
     font-size: 8vmin;
   }
-  
+
   .box {
     width: 28vmin;
     height: 28vmin;
@@ -211,7 +227,7 @@ td:hover {
     width: 20vmin;
     font-size: 18vmin;
   }
-  
+
   .btn {
     padding: 2vmin 3vmin;
     /* margin: 8vmin auto; */

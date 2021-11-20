@@ -1,20 +1,23 @@
 'use strict';
 
 
-// const btnConfirm = document.querySelector('.btn');
+/*------------------ Selecting element ----------------*/
+
 const btnConfirm = document.getElementById("confirm-btn");
-var playerBoxColor = document.getElementsByClassName('box');
-var playerInpColor = document.getElementsByClassName('inputBox');
-var modalButton = document.getElementsByClassName('show-modal');
+const playerBoxColor = document.getElementsByClassName('box');
+const playerInpColor = document.getElementsByClassName('inputBox');
+const modalButton = document.getElementsByClassName('show-modal');
 const confirmButton = document.getElementById('confirm-btn');
 const button = document.getElementsByTagName('button');
 
-// audios
+/*------------------ Audio ----------------*/
+
 const confirmAudio = new Audio('confirm.wav');
 const errorAudio = new Audio('error.wav');
 const gameWinAudio = new Audio('game-win.wav');
 
 
+/*------------------ Define game variable ----------------*/
 
 var oldValue = null;
 var player = false;
@@ -36,107 +39,219 @@ var boolPlayerA = [false, false, false, false, false, false];
 var boolPlayerB = [false, false, false, false, false, false];
 
 
-// confirmButton.addEventListener('click', confirmationSound());
-// confirmButton.addEventListener('click', errorSound());
+/*------------------ Color theme of player A ----------------*/
+
+function colorThemeOfPlayerA() {
+
+    /*------------------ Background ----------------*/
+
+    document.body.style.background = '#fab005';
+
+    /*------------------ Grid Color ----------------*/
+
+    for (let i = 0; i < playerBoxColor.length; i++) {
+        playerBoxColor[i].style.background = '#ffe066';
+        playerInpColor[i].style.background = '#ffe066';
+    }
+    for (let i = 0; i < modalButton.length; i++)
+        modalButton[i].style.color = '#fab005';
+    document.querySelector('.btn').style.color = '#fab005';
+}
+
+/*------------------ Color theme of player B ----------------*/
+
+function colorThemeOfPlayerB() {
+
+    /*------------------ Background ----------------*/
+
+    document.body.style.background = '#3bc9db';
+
+    /*------------------ Grid Color ----------------*/
+
+    for (let i = 0; i < playerBoxColor.length; i++) {
+        playerBoxColor[i].style.background = '#66d9e8';
+        playerInpColor[i].style.background = '#66d9e8';
+    }
+    for (let i = 0; i < modalButton.length; i++)
+        modalButton[i].style.color = '#3bc9db';
+    document.querySelector('.btn').style.color = '#3bc9db';
+}
+
+/*------------------ winning Theme ----------------*/
+
+function winningTheme() {
+    document.getElementById("content").style.display = "none";
+    document.body.style.background = '#f03e3e';
+    for (let i = 0; i < modalButton, length; i++) {
+        modalButton[i].style.display = 'none';
+    }
+    gameWinAudio.play();
+}
 
 
-function showbox() {
+function openRuleBox() {
     confirmAudio.play();
     document.getElementById('modal_box').style.display = "block";
     document.getElementById('content').style.display = "none";
-    // document.querySelector('.show-modal').style.display = 'none';
+
+
+    /*------------------ hide all button ----------------*/
+
     for (let i = 0; i < modalButton.length; i++)
         modalButton[i].style.display = 'none';
+
     document.body.style.background = '#12b886';
 }
 
-function closebox() {
+function closeRuleBox() {
     confirmAudio.play();
     document.getElementById('modal_box').style.display = "none";
     document.getElementById('content').style.display = "block";
-    // document.querySelector('.show-modal').style.display = 'block';
+
+    /*------------------ unhide all button ----------------*/
+
     for (let i = 0; i < modalButton.length; i++)
         modalButton[i].style.display = 'block';
-    if (player == false) document.body.style.background = '#3bc9db';
-    else document.body.style.background = '#fab005';
+
+    /*------------------ change theme to current player ----------------*/
+    if (player == false) colorThemeOfPlayerB();
+    else colorThemeOfPlayerA();
 }
 
-// game logic
+function openAboutBox() {
+    confirmAudio.play();
+    document.getElementById('about_modal').style.display = "block";
+    document.getElementById('content').style.display = "none";
+
+    /*------------------ hide all button ----------------*/
+    for (let i = 0; i < modalButton.length; i++)
+        modalButton[i].style.display = 'none';
+
+    document.body.style.background = '#12b886';
+}
+
+function closeAboutBox() {
+    confirmAudio.play();
+    document.getElementById('about_modal').style.display = "none";
+    document.getElementById('content').style.display = "block";
+
+    /*------------------ unhide all button ----------------*/
+
+    for (let i = 0; i < modalButton.length; i++)
+        modalButton[i].style.display = 'block';
+
+    /*------------------ change theme to current player ----------------*/
+
+    if (player == false) colorThemeOfPlayerB();
+    else colorThemeOfPlayerA();
+}
+
+
+
+/* Game Logic */
 function winning() {
 
-    // playerA
+    /*------------------ PLayer A  ----------------*/
+    /*------------------ horizontal row  ----------------*/
+
     if (playerA[0][0] != 0 && playerA[0][1] != 0 && playerA[0][2] != 0) {
         playerWonA = true;
     } else if (playerA[1][0] != 0 && playerA[1][1] != 0 && playerA[1][2] != 0) {
         playerWonA = true;
     } else if (playerA[2][0] != 0 && playerA[2][1] != 0 && playerA[2][2] != 0) {
         playerWonA = true;
-    } else if (playerA[0][0] != 0 && playerA[1][0] != 0 && playerA[2][0] != 0) {
+    }
+
+    /*------------------ vertical row  ----------------*/
+
+    else if (playerA[0][0] != 0 && playerA[1][0] != 0 && playerA[2][0] != 0) {
         playerWonA = true;
     } else if (playerA[0][1] != 0 && playerA[1][1] != 0 && playerA[2][1] != 0) {
         playerWonA = true;
     } else if (playerA[0][2] != 0 && playerA[1][2] != 0 && playerA[2][2] != 0) {
         playerWonA = true;
-    } else if (playerA[0][0] != 0 && playerA[1][1] != 0 && playerA[2][2] != 0) {
+    }
+
+    /*------------------ diagonal row  ----------------*/
+
+    else if (playerA[0][0] != 0 && playerA[1][1] != 0 && playerA[2][2] != 0) {
         playerWonA = true;
     } else if (playerA[0][2] != 0 && playerA[1][1] != 0 && playerA[2][0] != 0) {
         playerWonA = true;
     }
 
 
-    // player B
+    /*------------------ PLayer B  ----------------*/
+    /*------------------ horizontal row  ----------------*/
+
     if (playerB[0][0] != 0 && playerB[0][1] != 0 && playerB[0][2] != 0) {
         playerWonB = true;
     } else if (playerB[1][0] != 0 && playerB[1][1] != 0 && playerB[1][2] != 0) {
         playerWonB = true;
     } else if (playerB[2][0] != 0 && playerB[2][1] != 0 && playerB[2][2] != 0) {
         playerWonB = true;
-    } else if (playerB[0][0] != 0 && playerB[1][0] != 0 && playerB[2][0] != 0) {
+    }
+
+
+    /*------------------ vertical row  ----------------*/
+
+    else if (playerB[0][0] != 0 && playerB[1][0] != 0 && playerB[2][0] != 0) {
         playerWonB = true;
     } else if (playerB[0][1] != 0 && playerB[1][1] != 0 && playerB[2][1] != 0) {
         playerWonB = true;
     } else if (playerB[0][2] != 0 && playerB[1][2] != 0 && playerB[2][2] != 0) {
         playerWonB = true;
-    } else if (playerB[0][0] != 0 && playerB[1][1] != 0 && playerB[2][2] != 0) {
+    }
+
+
+    /*------------------ diagonal row  ----------------*/
+
+    else if (playerB[0][0] != 0 && playerB[1][1] != 0 && playerB[2][2] != 0) {
         playerWonB = true;
     } else if (playerB[0][2] != 0 && playerB[1][1] != 0 && playerB[2][0] != 0) {
         playerWonB = true;
     }
 
+    /*------------------ condition for player A wins  ----------------*/
+
     if (playerWonA) {
         document.getElementById('win-modal').innerHTML = 'Player A Won';
-        document.getElementById("content").style.display = "none";
-        document.body.style.background = '#f03e3e';
-        document.querySelector('.show-modal').style.display = 'none';
-        gameWinAudio.play();
-
+        winningTheme();
     }
 
+    /*------------------ condition for player B wins ----------------*/
     if (playerWonB) {
         document.getElementById('win-modal').innerHTML = 'Player B Won';
-        document.getElementById("content").style.display = "none";
-        document.body.style.background = '#f03e3e';
-        document.querySelector('.show-modal').style.display = 'none';
-        gameWinAudio.play();
+        winningTheme();
     }
 }
+
+/*------------------ checking old values ----------------*/
 
 function onConfirm(obj) {
     oldValue = obj.value;
 }
 
 function changePlayer(id1, id2, val) {
+
+/*------------------ 
+If player enter invalid number such not in range[1,6]
+then old value get back if there is no value then it
+is replaced by null
+----------------*/
     if (val.value < 1 || val.value > 6) {
+        errorAudio.play();
         val.value = oldValue;
         playerA[id1][id2] = 0;
         playerB[id1][id2] = 0;
-        errorAudio.play();
         return;
     }
+    /*------------------ Player A conditions  ----------------*/
     if (player == false) {
         for (let i = 0; i <= 2; i++) {
             for (let j = 0; j <= 2; j++) {
                 if (playerA[i][j] == val.value) {
+                    errorAudio.play();
                     val.value = oldValue;
                     playerA[id1][id2] = 0;
                     playerB[id1][id2] = 0;
@@ -153,29 +268,17 @@ function changePlayer(id1, id2, val) {
         } else {
             confirmAudio.play();
             playerA[id1][id2] = val.value;
-            // background color
-            document.body.style.background = '#fab005';
-
-            // input color 
-            // document.querySelector('.inputBox').style.background = '#ffe066';
-            // document.querySelector('.box').style.background = '#ffe066';
-            for (let i = 0; i < playerBoxColor.length; i++) {
-                playerBoxColor[i].style.background = '#ffe066';
-                playerInpColor[i].style.background = '#ffe066';
-            }
-            // button color
-            for (let i = 0; i < modalButton.length; i++)
-                modalButton[i].style.color = '#fab005';
-            document.querySelector('.btn').style.color = '#fab005';
+            colorThemeOfPlayerA();
         }
         playerB[id1][id2] = 0;
         val.style.color = '#0b7285';
 
-
+        /*------------------ Player B condition  ----------------*/
     } else {
         for (let i = 0; i <= 2; i++) {
             for (let j = 0; j <= 2; j++) {
                 if (playerB[i][j] == val.value) {
+                    errorAudio.play();
                     val.value = oldValue;
                     playerA[id1][id2] = 0;
                     playerB[id1][id2] = 0;
@@ -191,32 +294,15 @@ function changePlayer(id1, id2, val) {
         } else {
             confirmAudio.play();
             playerB[id1][id2] = val.value;
-            // background color
-            document.body.style.background = '#3bc9db';
-            // input color 
-            for (let i = 0; i < playerBoxColor.length; i++) {
-                playerBoxColor[i].style.background = '#66d9e8';
-                playerInpColor[i].style.background = '#66d9e8';
-            }
-
-            // button color
-            for (let i = 0; i < modalButton.length; i++)
-                modalButton[i].style.color = '#3bc9db';
-            document.querySelector('.btn').style.color = '#3bc9db';
+            colorThemeOfPlayerB();
         }
         playerA[id1][id2] = 0;
         val.style.color = '#e67700';
     }
 
 
-    player = !player;
-    console.log(playerA, playerB, player, oldValue);
+    player = !player; /*----- player change -----*/
     winning();
     oldValue = null;
 }
 
-// confirmButton.addEventListener('click', changePlayer(id1, id2, val));
-
-
-// audio
-// what number we use it will show by any means

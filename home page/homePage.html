@@ -13,18 +13,13 @@
 
 <body>
     <div class="main">
-        <input type="text" placeholder="Player A" id="PlayerAName" class="inputBox name pAname">
-        <input type="text" placeholder="Player B" id="PlayerBName" class="inputBox name pBname">
-        <button type="button" id="confirmButton" class="btn confirmbtn">CONFIRM</button>
-        <button onclick="window.location.href='../index.html';"  id="start" class="btn confirmbtn">Start</button>
-
-        <!-- loading , hidden -->
-
-
-        <!-- player is selected here , hidden-->
+        <p class="pDecide"></p>
+        <input type="text" placeholder="Player A" id="PlayerAName" class="inputBox name pAname" onchange="getvalueA(this)" >
+        <input type="text" placeholder="Player B" id="PlayerBName" class="inputBox name pBname" onchange="getvalueB(this)">
+        <button type="button" id="confirmButton" class="btn confirmbtn"
+            onclick="selectPlayer(playerTurn)">CONFIRM</button>
+        <button onclick="window.location.href='start.html';" id="start" class="btn confirmbtn">Start</button>
     </div>
-
-    <div class="pDecide"></div>
     <script src="./homePage.js"></script>
 </body>
 
